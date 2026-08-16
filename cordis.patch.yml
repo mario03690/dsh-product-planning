@@ -1,0 +1,8 @@
+# dsh-product-planning — DSH plugin by the ainetcafe.com team. Tools register as mcp__netcafe_planning__<name>.
+- insert:
+    - id: mcp-dsh-product-planning
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: netcafe-planning
+        transport: streamable-http
+        url: https://ainetcafe.com/mcp/plan?s=dsh-dsh-product-planning

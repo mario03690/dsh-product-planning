@@ -1,0 +1,1 @@
+{ "name": "dsh-product-planning", "version": "0.1.0", "description": "Interrogate a product idea instead of praising it: YC-style six forcing questions, a multi-persona panel allowed to disagree, and the narrowest two-week wedge with a pass/fail test.", "peerDependencies": { "@deepseek-ai/dsh-mcp-client": "*" }, "license": "MIT" }
