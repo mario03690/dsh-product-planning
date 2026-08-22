@@ -8,6 +8,29 @@ Interrogate a product idea instead of praising it: YC-style six forcing question
 
 Start with `what_can_you_do` — describe your task in any language, get the exact tool and a ready-to-run call.
 
+<!-- TOOLS:BEGIN -->
+## What's in this pack
+
+7 tools, read from the live endpoint on 2026-08-22 — **this table is generated, not hand-written**, so it cannot drift away from what `tools/list` actually returns. The **Arguments** column is what the tool genuinely reads; it comes from the tool's own declared input schema.
+
+| Tool | What it does | Arguments | Price / call |
+|---|---|---|---|
+| `what_can_you_do` | Describe a task in plain language (any language) and get back exactly which tools on this server do it, with ready- | `task` | — |
+| `make_test_cases` | A function or spec → a table of test cases (input, expected, edge cases) as a Markdown file. | `code`, `spec` | $0.025 |
+| `validate_idea` | YC-style idea validation: answers six forcing questions about your idea (who is in pain, current workaround, narrow | `idea`, `text`, `description`, `model` | $0.03 |
+| `panel_review` | Multi-persona review: a pessimistic investor, a target user, and a competitor CTO each give their OWN (mutually con | `plan`, `idea`, `text`, `model` | $0.04 |
+| `narrowest_wedge` | Cut a big plan into the smallest slice that can be validated in two weeks, with a concrete pass/fail test. plan = t | `plan`, `idea`, `text`, `model` | $0.02 |
+| `make_user_story` | A feature idea → agile user stories with acceptance criteria (Markdown file). | `feature`, `count` | $0.015 |
+| `make_okr` | A goal → structured OKRs (objective + measurable key results) as a Markdown file. | `goal`, `timeframe` | $0.015 |
+
+`—` in the price column means the tool is not metered per call (session/trial-gated instead). Failed calls are never charged. Check it yourself:
+
+```sh
+curl -s -X POST https://ainetcafe.com/mcp/plan -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+<!-- TOOLS:END -->
+
 ## Install
 
 ```sh
